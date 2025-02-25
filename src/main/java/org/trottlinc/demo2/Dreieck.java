@@ -1,4 +1,4 @@
-package org.trottlinc.demo1;
+package org.trottlinc.demo2;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
