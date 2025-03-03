@@ -73,37 +73,23 @@ public class Susoku {
                     int[][] mat = parsePuzzle(puzzleString);
                     System.out.println("Solving " + puzzleName);
                     solveSusoku(mat);
-                    writer.write(printSusoku(mat)+"\n");
+                    String solution = getSolutionString(mat);
+                    writer.write(puzzleName + ";" + puzzleString + ";" + solution + "\n");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         writer.close();
-
-
     }
 
-    public static String printSusoku(int[][] mat) {
+    public static String getSolutionString(int[][] mat) {
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < 9; i++) {
-            if (i % 3 == 0) {
-                s.append("+---+---+---+\n");
-            }
             for (int j = 0; j < 9; j++) {
-                if (j % 3 == 0) {
-                    s.append("|");
-                }
-                if (mat[i][j] == 0) {
-                    s.append(" ");
-                } else {
-                    s.append(mat[i][j]);
-                }
+                s.append(mat[i][j]);
             }
-            s.append("|\n");
         }
-        s.append("+---+---+---+\n");
         return s.toString();
     }
-
 }
